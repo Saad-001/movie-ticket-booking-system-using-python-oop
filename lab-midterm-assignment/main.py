@@ -1,4 +1,4 @@
-""" CINEMA HALL MOVIE TICKET BOOKING SYSTEM"""
+""" CINEMA HALL MOVIE TICKET BOOKING SYSTEM """
 
 class Star_Cinema :
     __hall_list = []
@@ -150,7 +150,9 @@ hall.entry_show("ae12", "BLACK ADAM", "Octobar 30, 2022 | 12:30 PM")
 hall.entry_show("ae25", "SPIDER MAN", "Octobar 30, 2022 | 2:30 PM")
 
 print("")
-print("PYTHON LAB MIDTERN EXAM")
+print("-----------------------------------------")
+print("CINEMA HALL MOVIE TICKET BOOKING SYSTEM")
+print("-----------------------------------------")
 
 while True :
     print("")
@@ -197,8 +199,8 @@ while True :
 
     else :
         print("")
-        print("------------------------------------------------------------------------")
-        print(f"THIS '{choice}' IS A RONG OPTION, PLEASE TYPE A RIGHT OPTION FROM BELOW")
-        print("------------------------------------------------------------------------")
+        print("-------------------------------------------------------------------------------------")
+        print(f"THIS '{choice}' IS A RONG OPTION, PLEASE TYPE A RIGHT OPTION FROM THE BELOW OPTIONS")
+        print("-------------------------------------------------------------------------------------")
 
 
