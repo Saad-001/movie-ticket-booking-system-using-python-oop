@@ -63,22 +63,25 @@ class Hall(Star_Cinema) :
 
     def book_seats(self, cst_name, ph_number, show_id, booking_seats) :
         sh_found = 0
-        ticket_managed = 1
+        ticket_managed = 0
         for show in self.__show_list :
             if show_id in show :
                 sh_found = 1
-                for i, book_item in enumerate(booking_seats) :
+                for book_item in booking_seats[:] :
                     if book_item[0] < len(self.__seats[show_id]) :
                         if book_item[1] < len(self.__seats[show_id][book_item[1]-1]) :
-                            if book_item[1] < len(self.__seats[show_id][book_item[1]-1]) :
+                            if book_item[1] < len(self.__seats[show_id][book_item[1]-1]) :                            
                                 if self.__seats[show_id][book_item[0]][book_item[1]] != True :
                                     self.__seats[show_id][book_item[0]][book_item[1]] = True 
+                                    ticket_managed = 1
                                 else :
-                                    ticket_managed = ticket_managed - 1
+                                    if ticket_managed == 0 :
+                                        ticket_managed = 0
                                     print("")
                                     print("---------------------------------------------------------------------------------")
                                     print(f"SORRY, THIS '{generate_actual_seat(book_item[0],book_item[1])}' SEAT IS ALREADY BOOKED, PLEASE BOOK ANOTHER SEAT")
                                     print("---------------------------------------------------------------------------------")
+                                    booking_seats.remove(book_item)
                             else :
                                print("")
                                print("-------------------------------------------------------------------")
@@ -102,7 +105,7 @@ class Hall(Star_Cinema) :
             print("---------------------------------------------")
             return
 
-        if ticket_managed == 1 :
+        if ticket_managed  == 1 :
             print("")
             print("---------------------TICKET BOOKED SUCCESSFULLY------------------------")
             print(f"NAME: {cst_name}")
@@ -142,7 +145,6 @@ class Hall(Star_Cinema) :
                 break
         if show_found == 0 :
             print(f"SHOW ID: '{show_id}' IS NOT VALID")
-
 
 
 hall = Hall(4, 5, "Almass")
