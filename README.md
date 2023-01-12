@@ -1,1 +1,1 @@
-# python-lab-midterm-assignment
+# Movie Ticket Booking System Using Python OOP

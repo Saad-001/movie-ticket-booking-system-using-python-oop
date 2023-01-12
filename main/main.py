@@ -131,6 +131,9 @@ class Hall(Star_Cinema) :
         for show in self.__show_list :
             if show_id in show :
                 show_found = 1
+                print("-------------------------------------------------------------------")
+                print(f"MOVIE NAME: {show[1]}           TIME: {show[2]}")
+                print("-------------------------------------------------------------------")
                 all_seats = self.__seats[show_id]
                 for i,seat in enumerate(all_seats) :
                     s_len = len(seat)
